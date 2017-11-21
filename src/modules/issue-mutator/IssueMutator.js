@@ -1,12 +1,28 @@
 import TagController from '../tags/TagController'
 
-class IssueMutator {
+class IssueMutator
+{
+    /**
+     * Get issue elements
+     *
+     * @return {Element}
+     */
     static getIssues() {
         return document.querySelectorAll('div.ghx-issue');
     }
+
+    /**
+     * Get pool of swimlanes
+     *
+     * @return {Element}
+     */
     static getPool() {
         return document.querySelector('#ghx-pool');
     }
+
+    /**
+     * Construct IssueMutator
+     */
     constructor() {
         let target = IssueMutator.getPool();
 
@@ -20,6 +36,12 @@ class IssueMutator {
         });
         observer.observe(target, config);
     }
+
+    /**
+     * Relocate assigned person of issue
+     *
+     * @return {void}
+     */
     static relocateAssignee(issue) {
         const assignee_image = issue.querySelector('.ghx-row.ghx-stat-2 span.ghx-field img');
         if( assignee_image )

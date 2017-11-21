@@ -1,9 +1,22 @@
 import tags from './TagList';
 
-class TagController {
+class TagController
+{
+    /**
+     * Get array of tags defined in TagList
+     *
+     * @return {Array}
+     */
     static get tags() {
         return tags;
     }
+
+    /**
+     * Render the issue to desired layout
+     *
+     * @param {Element} issue
+     * @return {Element}
+     */
     static renderIssue(issue) {
         let hasTag = false;
         let activeTag = null;

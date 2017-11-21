@@ -8,8 +8,6 @@ import CollapseTodo from './modules/collapse-todo/CollapseTodo';
         " / __  /          / ___ |       / /___           / /| |          / /___           / _, _/         / /  / /          / ___ |        / /|  /  \n" +
         "/_/ /_/          /_/  |_|       \\____/          /_/ |_|         /_____/          /_/ |_|         /_/  /_/          /_/  |_|       /_/ |_/   \n" +
         "                                                                                                                                            ")
-
-
     new IssueMutator();
     new CollapseTodo();
 }());

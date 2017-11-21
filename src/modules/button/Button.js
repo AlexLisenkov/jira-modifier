@@ -1,7 +1,18 @@
-class Button {
+class Button
+{
+    /**
+     * Get the 'Complete sprint' button
+     * Used as reference to place the button in the correct position
+     *
+     * @return {Element}
+     */
     static getCompleteSprintButton() {
         return document.querySelector('#ghx-complete-sprint');
     }
+
+    /**
+     * Button constructor
+     */
     constructor() {
         let target = document.querySelector('#ghx-header');
 
@@ -12,17 +23,41 @@ class Button {
         });
         observer.observe(target, config);
     }
+
+    /**
+     * Add button element to dom
+     *
+     * @return {void}
+     */
     addButton() {
         const DOMbutton = this.button();
         Button.getCompleteSprintButton().insertAdjacentElement('beforebegin', DOMbutton);
-        DOMbutton.addEventListener('click', this.handeClick);
+        DOMbutton.addEventListener('click', this.handleClick);
     }
+
+    /**
+     * Define button text
+     *
+     * @return {string}
+     */
     buttonText() {
         return null;
     }
+
+    /**
+     * Generate button HTML
+     *
+     * @return {string}
+     */
     buttonHtml() {
         return `<button class="aui-button">${this.buttonText()}</button>`;
     }
+
+    /**
+     * Generate button Element
+     *
+     * @return {Element}
+     */
     button() {
         const button = document.createElement('button');
         const content = document.createTextNode(this.buttonText());
@@ -35,12 +70,9 @@ class Button {
      * Handle click event of button
      *
      * @return {EventListener}
-     * @param event
+     * @param {EventListener} event
      */
-    handeClick(event) {
-
-    }
-
+    handleClick(event);
 }
 
 export default Button;
