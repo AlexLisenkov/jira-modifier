@@ -2,3 +2,27 @@
     padding-right: 5px;
     height: 25px;
 }
+
+.alex-jira-img.avatar {
+    position: absolute;
+    right: 5px;
+}
+
+div.ghx-issue{
+    display: flex;
+    padding-right: 35px;
+}
+
+section.ghx-summary{
+    line-height: 25px !important;
+    display: flex !important;
+}
+
+div.ghx-issue .ghx-stat-fields{
+    display: none;
+}
+
+.ghx-row.ghx-stat-2 span.ghx-field img{
+    padding-right: 5px;
+    height: 25px;
+}
