@@ -72,7 +72,9 @@ class Button
      * @return {EventListener}
      * @param {EventListener} event
      */
-    handleClick(event);
+    handleClick(event){
+        // void
+    }
 }
 
 export default Button;

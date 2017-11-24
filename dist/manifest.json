@@ -1,9 +1,11 @@
 {
     "name": "Jira Modifier",
-    "version": "0.1",
-    "description": "",
+    "version": "0.2.0",
+    "description": "Mofify Jira to look better",
     "permissions": [
-        "http://create.atlassian.net/"
+        "http://create.atlassian.net/",
+        "background",
+        "storage"
     ],
     "manifest_version": 2,
     "content_scripts": [{
