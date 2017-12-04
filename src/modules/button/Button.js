@@ -14,12 +14,12 @@ class Button
      * Button constructor
      */
     constructor() {
-        let target = document.querySelector('#ghx-header');
+        let target = document.querySelector('#ghx-modes-tools');
 
         let config = { childList: true };
         let that = this;
         let observer = new MutationObserver((mutations) => {
-             that.addButton();
+            that.addButton();
         });
         observer.observe(target, config);
     }

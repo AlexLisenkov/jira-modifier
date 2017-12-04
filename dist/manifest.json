@@ -17,7 +17,7 @@
         ],
         "run_at": "document_end",
         "matches": [
-            "*://create.atlassian.net/secure/*"
+            "*://*.atlassian.net/secure/*"
         ],
         "all_frames": true
     }]

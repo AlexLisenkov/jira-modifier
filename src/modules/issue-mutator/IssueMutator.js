@@ -3,38 +3,15 @@ import TagController from '../tags/TagController'
 class IssueMutator
 {
     /**
-     * Get issue elements
-     *
-     * @return {Element}
-     */
-    static getIssues() {
-        return document.querySelectorAll('div.ghx-issue');
-    }
-
-    /**
-     * Get pool of swimlanes
-     *
-     * @return {Element}
-     */
-    static getPool() {
-        return document.querySelector('#ghx-pool');
-    }
-
-    /**
      * Construct IssueMutator
+     *
+     * @param {Element} issue
      */
-    constructor() {
-        let target = IssueMutator.getPool();
-
-        let config = { childList: true };
-        let observer = new MutationObserver((mutations) => {
-            const issues = IssueMutator.getIssues();
-            issues.forEach( (issue) => {
-                TagController.renderIssue(issue);
-                IssueMutator.relocateAssignee(issue);
-            });
-        });
-        observer.observe(target, config);
+    constructor(issue) {
+        this.issue = issue;
+        TagController.renderIssue(this.issue);
+        this.relocateAssignee();
+        this.observeForChanges();
     }
 
     /**
@@ -42,10 +19,42 @@ class IssueMutator
      *
      * @return {void}
      */
-    static relocateAssignee(issue) {
-        const assignee_image = issue.querySelector('.ghx-row.ghx-stat-2 span.ghx-field img');
+    relocateAssignee() {
+        const assignee_image = this.issue.querySelector('.ghx-row.ghx-stat-2 span.ghx-field img');
         if( assignee_image )
-            issue.insertAdjacentElement('afterbegin', assignee_image).classList.add(...["alex-jira-img", "avatar"]);
+            this.issue.insertAdjacentElement('afterbegin', assignee_image).classList.add(...["alex-jira-img", "avatar"]);
+    }
+
+    /**
+     * Add MutationObserver to issue
+     *
+     * @return void
+     */
+    observeForChanges() {
+        let config = { childList: true, attributes: true };
+        let observer = new MutationObserver((mutations) => {
+            TagController.renderIssue(this.issue);
+            this.relocateAssignee();
+        });
+        observer.observe(this.issue, config);
+    }
+
+    /**
+     * Set issue dom element
+     *
+     * @param {Element} issue
+     */
+    set issue(issue) {
+        this._issue = issue;
+    }
+
+    /**
+     * Get issue dom element
+     *
+     * @return {Element} issue
+     */
+    get issue() {
+        return this._issue;
     }
 }
 

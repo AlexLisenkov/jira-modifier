@@ -1,6 +1,6 @@
 import Button from '../button/Button'
 
-class CollapseTodo extends Button
+class CollapseDone extends Button
 {
     /**
      * Define button text
@@ -8,7 +8,7 @@ class CollapseTodo extends Button
      * @return {string}
      */
     buttonText() {
-        return "TODO";
+        return "DONE";
     }
 
     /**
@@ -22,12 +22,12 @@ class CollapseTodo extends Button
         for (let i = 0, l = swimlanes.length; i < l; i++) {
             let current = swimlanes[i];
             if( current.querySelector('.ghx-swimlane-header').classList.contains('ghx-done') ){
-                current.classList.add('ghx-closed');
-            } else {
                 current.classList.remove('ghx-closed');
+            } else {
+                current.classList.add('ghx-closed');
             }
         }
     }
 }
 
-export default CollapseTodo;
+export default CollapseDone;
