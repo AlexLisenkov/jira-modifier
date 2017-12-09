@@ -1,4 +1,5 @@
 import IssueMutator from './IssueMutator'
+import TagController from '../tags/TagController'
 
 class IssueMutatorController
 {
@@ -34,6 +35,13 @@ class IssueMutatorController
             });
         });
         observer.observe(target, config);
+    }
+
+    static renderAllIssues() {
+        const issues = IssueMutatorController.getIssues();
+        issues.forEach( (issue) => {
+            TagController.renderIssue(issue);
+        });
     }
 }
 

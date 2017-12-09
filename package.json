@@ -18,5 +18,8 @@
   "homepage": "https://github.com/AlexLisenkov/jira-modifier#readme",
   "devDependencies": {
     "webpack": "^3.8.*"
+  },
+  "dependencies": {
+    "firebase": "^4.7.0"
   }
 }
